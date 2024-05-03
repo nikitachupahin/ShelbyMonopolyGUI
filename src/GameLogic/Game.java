@@ -77,7 +77,33 @@ public class Game {
     private final int GAMELENGTH = 100;
 
     // Game Data / Variables
-    private int numberOfPlayers;
+    private int amountOfPlayers;
     private List<Player> playerList;
+    private Map<Integer,Cell> cellSet;
+    private int round;
+    private int roundStep;
     private Player currentPlayer;
+
+    public List<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public Map<Integer, Cell> getCellSet() {
+        return cellSet;
+    }
+
+    private Player getNextPlayer() {
+        int currentIndex = playerList.indexOf(currentPlayer);
+        int nextIndex = (currentIndex + 1) % amountOfPlayers;
+        while (true) {
+            if (playerList.get(nextIndex).isOnline()) {
+                return playerList.get(nextIndex);
+            }
+            nextIndex = (nextIndex + 1) % amountOfPlayers;
+        }
+    }
+
+    private boolean isGameOver(){
+        return getNextPlayer() == this.currentPlayer || this.round > GAMELENGTH;
+    }
 }

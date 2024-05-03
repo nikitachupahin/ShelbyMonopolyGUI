@@ -20,6 +20,7 @@ enum Color {
 }
 
 public class Player {
+    private boolean status;
     private String name;
     private Color color;
     private boolean continueGame;
@@ -32,6 +33,7 @@ public class Player {
         this.moneyAmount = moneyAmount;
         this.coordinates = coordinates;
         this.color = color;
+        this.status = true;
     }
 
     public String getName(){
@@ -65,4 +67,6 @@ public class Player {
     public void changeCoordinates(Cell coordinates){
         this.coordinates = coordinates;
     }
+
+    public boolean isOnline() { return status; }
 }
