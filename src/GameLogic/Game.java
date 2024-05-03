@@ -1,29 +1,70 @@
 package GameLogic;
 
-import java.util.List;
+import java.util.*;
 
 enum MonopolyMap {
-    Jail,
-    Go,
-    Central,
-    WanChai,
-    PayTax,
-    Stanley,
-    PassbyJail,
-    ShekO,
-    MongKok,
-    Chance1,
-    TsingYi,
-    FreeParking,
-    Shatin,
-    Chance2,
-    TuenMun,
-    TaiPo,
-    GotoJail,
-    SaiKung,
-    YuenLong,
-    Chance3,
-    TaiO;
+    Jail(0, "Jail", Type.JAIL),
+    Go(1, "GO", Type.REST_ZONE),
+    Central(2, "Central", Type.PROPERTY, 850, 90),
+    WanChai(3, "Wan Chai", Type.PROPERTY, 750, 70),
+    PayTax(4, "Pay Tax", Type.TAX),
+    Stanley(5, "Stanley", Type.PROPERTY, 650, 65),
+    PassbyJail(6, "Pass by Jail", Type.REST_ZONE),
+    ShekO(7, "Shek O", Type.PROPERTY, 350, 15),
+    MongKok(8, "Mong Kok", Type.PROPERTY, 550, 35),
+    Chance1(9, "Chance 1", Type.CHANCE),
+    TsingYi(10, "Tsing Yi", Type.PROPERTY, 450, 20),
+    FreeParking(11, "Free Parking", Type.REST_ZONE),
+    Shatin(12, "Shatin", Type.PROPERTY, 650, 70),
+    Chance2(13, "Chance 2", Type.CHANCE),
+    TuenMun(14, "Tuen Mun", Type.PROPERTY, 350, 25),
+    TaiPo(15, "Tai Po", Type.PROPERTY, 550, 20),
+    GotoJail(16, "Go to Jail", Type.TO_JAIL),
+    SaiKung(17, "Sai Kung", Type.PROPERTY, 400, 15),
+    YuenLong(18, "Yuen Long", Type.PROPERTY, 450, 25),
+    Chance3(19, "Chance 3", Type.CHANCE),
+    TaiO(20, "Tai O", Type.PROPERTY, 650, 30);
+
+    private final String name;
+    private final int price;
+    private final int rent;
+    private final int position;
+    private final Type type;
+
+   MonopolyMap(int position, String name, Type type){
+        this.position = position;
+        this.name = name;
+        this.type = type;
+        this.price = 0;
+        this.rent = 0;
+    }
+    MonopolyMap(int position, String name, Type type, int price, int rent){
+        this.position = position;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.rent = rent;
+    }
+
+    public Type getType(){
+        return this.type;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public int getRent() {
+        return this.rent;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
 
 public class Game {
