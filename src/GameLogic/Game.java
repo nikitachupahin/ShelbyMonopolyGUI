@@ -103,6 +103,25 @@ public class Game {
         }
     }
 
+    private int[] rollDice(){
+        final int DICEMIN = 1, DICEMAX = 6;
+        return new int[0];
+    }
+    private boolean randomChoice(){
+        return getRandomNumber(0, 1) != 0;
+    }
+
+    private int randomChance(){
+        final int CHANCEMULTIPLE = 10, CHANCEMIN = -30, CHANCEMAX = 20;
+        return getRandomNumber(CHANCEMIN, CHANCEMAX) * CHANCEMULTIPLE;
+    }
+
+
+    private int getRandomNumber(int min, int max){
+        Random random = new Random();
+        return random.nextInt(max-min+1) + min;
+    }
+
     private boolean isGameOver(){
         return getNextPlayer() == this.currentPlayer || this.round > GAMELENGTH;
     }
