@@ -20,6 +20,7 @@ enum Color {
 }
 
 public class Player {
+    private int playerNum;
     private boolean status;
     private String name;
     private Color color;
@@ -27,7 +28,8 @@ public class Player {
     private int moneyAmount;
     private Cell coordinates;
 
-    public Player(String name, boolean continueGame, int moneyAmount, Cell coordinates, Color color){
+    public Player(int playerNum, String name, boolean continueGame, int moneyAmount, Cell coordinates, Color color) {
+        this.playerNum = playerNum;
         this.name = name;
         this.continueGame = continueGame;
         this.moneyAmount = moneyAmount;
@@ -36,37 +38,44 @@ public class Player {
         this.status = true;
     }
 
-    public String getName(){
+    public int getPlayerNum() {
+        return playerNum;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public boolean getGameStatus(){
+    public boolean getGameStatus() {
         return continueGame;
     }
 
-    public int getMoneyAmount(){
+    public int getMoneyAmount() {
         return moneyAmount;
     }
 
-    public Cell getCoordinates(){
+    public Cell getCoordinates() {
         return coordinates;
     }
 
-    public Color getColor(){
+    public Color getColor() {
         return color;
     }
 
-    public void endGame(){
+    public void endGame() {
         this.continueGame = false;
     }
 
-    public void changeMoneyAmount(int moneyAmount){
+    public void changeMoneyAmount(int moneyAmount) {
         this.moneyAmount = moneyAmount;
     }
 
-    public void changeCoordinates(Cell coordinates){
+    public void changeCoordinates(Cell coordinates) {
         this.coordinates = coordinates;
     }
 
-    public boolean isOnline() { return status; }
+
+    public boolean isOnline() {
+        return status;
+    }
 }
