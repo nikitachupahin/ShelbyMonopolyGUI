@@ -25,11 +25,13 @@ enum MonopolyMap {
     Chance3(19, "Chance 3", Type.CHANCE),
     TaiO(20, "Tai O", Type.PROPERTY, 650, 30);
 
+
     private final String name;
     private final int price;
     private final int rent;
     private final int position;
     private final Type type;
+
 
    MonopolyMap(int position, String name, Type type){
         this.position = position;
@@ -83,6 +85,10 @@ public class Game {
     private int round;
     private int roundStep;
     private Player currentPlayer;
+    private UserInterface userInterface;
+
+    public Game(UserInterface userInterface) { this.userInterface=userInterface; }
+
 
     public List<Player> getPlayerList() {
         return playerList;
