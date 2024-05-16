@@ -2,6 +2,9 @@ package GameLogic;
 
 public interface UserInterface {
 
+    /* [ Basic Output Functions ] */
+    void notify(String msg);
+
     void inform(String msg);
 
     void displayMessage(String msg);

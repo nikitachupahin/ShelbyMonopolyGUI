@@ -87,7 +87,9 @@ public class Game {
     private Player currentPlayer;
     private UserInterface userInterface;
 
-    public Game(UserInterface userInterface) { this.userInterface=userInterface; }
+    public Game(UserInterface userInterface){
+        this.userInterface=userInterface;
+    }
 
 
     public List<Player> getPlayerList() {
