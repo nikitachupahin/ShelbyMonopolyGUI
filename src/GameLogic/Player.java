@@ -21,6 +21,7 @@ enum Color {
 
 public class Player {
     private int playerNum;
+    private boolean isInJail;
     private boolean status;
     private String name;
     private Color color;
@@ -30,6 +31,7 @@ public class Player {
 
     public Player(int playerNum, String name, boolean continueGame, int moneyAmount, Cell coordinates, Color color) {
         this.playerNum = playerNum;
+        this.isInJail = false;
         this.name = name;
         this.continueGame = continueGame;
         this.moneyAmount = moneyAmount;
@@ -74,6 +76,13 @@ public class Player {
         this.coordinates = coordinates;
     }
 
+    public boolean getJailStatus(){
+        return isInJail;
+    }
+
+    public void setJailStatus(boolean isInJail){
+        this.isInJail = isInJail;
+    }
 
     public boolean isOnline() {
         return status;
