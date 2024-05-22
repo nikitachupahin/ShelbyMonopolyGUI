@@ -38,6 +38,10 @@ public class GUI implements UserInterface {
 
     }
 
+    public void changePropertyOwner(Property property, Player player){
+        property.setOwner(player);
+    }
+
     @Override
     public void displayMessage(String message) {
         final int ID = Request.DisplayMessage.getID();
