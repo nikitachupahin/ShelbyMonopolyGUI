@@ -85,10 +85,10 @@ public class Game {
     private int round;
     private int roundStep;
     private Player currentPlayer;
-    private UserInterface userInterface;
+    private UserInterface GUI;
 
     public Game(UserInterface userInterface){
-        this.userInterface=userInterface;
+        this.GUI = userInterface;
     }
 
     public List<Player> getPlayerList() {
@@ -121,6 +121,7 @@ public class Game {
         final int DICEMIN = 1, DICEMAX = 6;
         int dice1 = getRandomNumber(DICEMIN, DICEMAX);
         int dice2 = getRandomNumber(DICEMIN, DICEMAX);
+        GUI.rollDice(dice1, dice2);
         int[] s = new int[2];
         s[0]=dice1;
         s[1]=dice2;
@@ -143,5 +144,30 @@ public class Game {
 
     private boolean isGameOver(){
         return getNextPlayer() == this.currentPlayer || this.round > GAMELENGTH;
+    }
+
+    private boolean askPayFine(){
+        return GUI.askPayFine();
+    }
+
+    private boolean checkPlayerLoss(Player player){
+        if(!player.isOnline())return true;
+
+        if(player.getMoneyAmount() <= 0 || !player.isOnline()){
+            Cell tmp = cellSet.get(FIRSTSQUARE);
+            do{
+                if(tmp instanceof Property){
+                    if(((Property) tmp).getOwner() == player) {
+                        ((Property) tmp).setOwner(null);
+                        GUI.changePropertyOwner(((Property) tmp),player);
+                    }
+                }
+                tmp = tmp.getNext();
+            }while(tmp != cellSet.get(FIRSTSQUARE));
+            player.endGame();
+            GUI.notify("Player "+player.getName()+" has no money left and is out of game.");
+            return true;
+        }
+        return false;
     }
 }
