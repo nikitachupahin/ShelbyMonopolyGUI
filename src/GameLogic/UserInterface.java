@@ -1,5 +1,7 @@
 package GameLogic;
 
+import java.util.List;
+
 public interface UserInterface {
 
     /* [ Basic Output Functions ] */
@@ -8,6 +10,8 @@ public interface UserInterface {
     void inform(String msg);
 
     void displayMessage(String msg);
+
+    void displayResult(List<Player> playerList);
 
     void rollDice(int dice1, int dice2);
 

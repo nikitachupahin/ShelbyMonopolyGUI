@@ -6,6 +6,7 @@ import GameLogic.Player;
 import GameLogic.Property;
 import GameLogic.UserInterface;
 
+import java.util.List;
 
 
 public class GUI implements UserInterface {
@@ -59,6 +60,23 @@ public class GUI implements UserInterface {
         System.out.println("Display message DONE.");
         reply[ID] = -1;
     }
+
+    @Override
+    public void displayResult(List<Player> playerList) {
+        final int ID = Request.Refresh.getID();
+        synchronized (this){
+            try{
+                while (reply[ID].equals(-1)) {
+                    this.gameStage.setRequests(ID, true);
+                    this.wait();
+                }
+                this.notifyAll();
+            }catch (InterruptedException e) { e.printStackTrace(); }
+        }
+        System.out.println("Refresh DONE.");
+        reply[ID]=-1;
+    }
+
 
     @Override
     public void rollDice(int dice1, int dice2) {

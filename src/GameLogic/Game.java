@@ -150,7 +150,7 @@ public class Game {
         return GUI.askPayFine();
     }
 
-    private boolean checkPlayerLoss(Player player){
+    private boolean hasPlayerLost(Player player){
         if(!player.isOnline())return true;
 
         if(player.getMoneyAmount() <= 0 || !player.isOnline()){
@@ -170,4 +170,38 @@ public class Game {
         }
         return false;
     }
+
+    private void movePlayer(int steps){
+        int i;
+        Cell nextStep = currentPlayer.getCoordinates();
+        for(i = 1; i <= steps; i++) {
+            nextStep = nextStep.getNext();
+        }
+        GUI.playerMove(currentPlayer.getCoordinates(), nextStep, steps);
+        if(nextStep.getCoord() < currentPlayer.getCoordinates().getCoord()){
+            GUI.displayMessage("Player passes through GO square and gain salary of HKD 1500.");
+            currentPlayer.changeMoneyAmount(currentPlayer.getMoneyAmount() + SALARY);
+            GUI.playerUpdateMoney(currentPlayer,SALARY);
+        }
+        currentPlayer.changeCoordinates(nextStep);
+    }
+
+    public ArrayList getSortedPlayers(){
+        ArrayList<Player> sortedPlayerList = new ArrayList<Player>();
+        for ( Player p : playerList ) {
+            sortedPlayerList.add(p);
+        }
+        sortedPlayerList.sort(new PlayerComparator());
+        return sortedPlayerList;
+    }
+
+    private void showScoreBoard() {
+        GUI.displayResult(this.getSortedPlayers());
+    }
+
+    private void gameOver(){
+        GUI.notify("Game Over");
+        this.showScoreBoard();
+    }
+
 }
