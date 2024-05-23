@@ -17,6 +17,8 @@ public interface UserInterface {
 
     void playerMove(Cell beg, Cell end, int steps);
 
+    int makeChoice();
+
     void changePropertyOwner(Property property, Player player);
 
     void playerGotoJail(Player player);

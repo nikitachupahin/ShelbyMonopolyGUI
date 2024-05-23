@@ -89,6 +89,27 @@ public class GUI implements UserInterface {
     }
 
     @Override
+    public int makeChoice() {
+        final int ID = Request.StepOne.getID();
+        int s=1;
+        reply[ID] = -1;
+        synchronized (this){
+            try{
+                while (reply[ID].equals(-1)) {
+                    this.gameStage.setRequests(ID, true);
+                    this.wait();
+                }
+                if(reply[ID] instanceof Integer) s = (Integer) reply[ID];
+                else s = 1;
+                this.notifyAll();
+            }catch (InterruptedException e) { e.printStackTrace(); }
+        }
+        System.out.println("Step one DONE. - "+s);
+        reply[ID]=-1;
+        return s;
+    }
+
+    @Override
     public void playerGotoJail(Player player) {
 
     }

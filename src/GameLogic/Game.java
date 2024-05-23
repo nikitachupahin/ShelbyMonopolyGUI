@@ -204,4 +204,112 @@ public class Game {
         this.showScoreBoard();
     }
 
+    public void runGame(){
+        int userChoice;
+        int[] dice;
+        while(!this.isGameOver()){
+            GUI.displayMessage("\nRound "+this.round);
+            GUI.showPlayerInfo(currentPlayer);
+            // [1] Continue [2] Retire
+            if(roundStep == 0) {
+                userChoice = GUI.makeChoice();
+                if(userChoice == 2) {
+                    currentPlayer.endGame();
+                    this.hasPlayerLost(currentPlayer);
+                    GUI.notify("Player " + currentPlayer.getName() + " quits game.");
+                    this.setNextPlayer();
+                }
+                roundStep++;
+            }
+
+            if(roundStep == 1){
+                dice = this.rollDice();
+                if(currentPlayer.getJailStatus() == true){
+                    GUI.displayMessage(currentPlayer.getName()+" is in jail ");
+                    if(dice[0]==dice[1]){
+                        currentPlayer.setJailStatus(false);
+                    }
+                    else if(this.askPayFine()){
+                        if(currentPlayer.getMoneyAmount()<FINE){
+                            GUI.notify("You can't pay fine because your money is less than 90.");
+                        }
+                        else{
+                            currentPlayer.setJailStatus(false);
+                            currentPlayer.changeMoneyAmount(currentPlayer.getMoneyAmount() - FINE);
+                            GUI.playerUpdateMoney(currentPlayer,-FINE);
+                        }
+                    }
+                }
+
+                if(!currentPlayer.getJailStatus() == false){
+                    this.movePlayer(dice[0]+dice[1]);
+                }
+                roundStep++;
+            }
+            if(roundStep == 2){
+                switch (currentPlayer.getCoordinates().getType()){
+                    case TAX:
+                        int tax = (((currentPlayer.getMoneyAmount() + ROUND) / TAXDIV) + ROUND) / TAXDIV * TAXDIV;
+                        GUI.displayMessage("Player "+currentPlayer.getName()+" should pay tax of HKD"+tax+".");
+                        currentPlayer.changeMoneyAmount(currentPlayer.getMoneyAmount() - tax);
+                        GUI.playerUpdateMoney(currentPlayer,-tax);
+                        break;
+                    case CHANCE:
+                        int chanceMoney = this.randomChance();
+                        GUI.displayMessage("Player "+currentPlayer.getName()+" gets a chance!");
+                        currentPlayer.changeMoneyAmount(currentPlayer.getMoneyAmount() + chanceMoney);
+                        GUI.playerUpdateMoney(currentPlayer,chanceMoney);
+                        if(this.hasPlayerLost(currentPlayer)){
+                            this.setNextPlayer(); continue;
+                        }
+                        break;
+                    case TO_JAIL:
+                        GUI.displayMessage("Player "+currentPlayer.getName()+" goes to jail.");
+                        currentPlayer.setJailStatus(true);
+                        currentPlayer.changeCoordinates(cellSet.get(JAILPOSITION));
+                        GUI.playerGotoJail(currentPlayer);
+                        break;
+                    case PROPERTY:
+                        Property curProperty = (Property)currentPlayer.getCoordinates();
+                        GUI.displayMessage("Player "+currentPlayer.getName()+" arrives at "+curProperty.getName()+" (Price:"+curProperty.getPrice()+", Rent:"+curProperty.getRent()+").");
+                        if( curProperty.getOwner() != null && curProperty.getOwner() != currentPlayer ){
+                            GUI.displayMessage("This property belongs to "+curProperty.getOwner().getName()+". "+currentPlayer.getName()+" should pay HKD "+curProperty.getRent()+".");
+                            currentPlayer.changeMoneyAmount(currentPlayer.getMoneyAmount() -curProperty.getRent() );
+                            curProperty.getOwner().changeMoneyAmount(currentPlayer.getMoneyAmount() + curProperty.getRent());
+                            GUI.playerUpdateMoney(currentPlayer,-curProperty.getRent());
+                            GUI.playerUpdateMoney(curProperty.getOwner(), curProperty.getRent());
+                            if(this.hasPlayerLost(currentPlayer)){
+                                this.setNextPlayer();
+                                continue;
+                            }
+                        }
+                        else if(curProperty.getOwner() == null){
+                            boolean buy;
+                            buy = GUI.askForBuying(curProperty);
+                            if(buy) {
+                                if(currentPlayer.getMoneyAmount() > curProperty.getPrice()){
+                                    GUI.changePropertyOwner (curProperty, currentPlayer);
+                                    GUI.playerUpdateMoney (currentPlayer,-curProperty.getPrice());
+                                    curProperty.setOwner(currentPlayer);
+                                    currentPlayer.changeMoneyAmount(currentPlayer.getMoneyAmount() - curProperty.getPrice() );
+                                }
+                                else{
+                                    GUI.displayMessage("Failed because money is not enough.");
+                                }
+                            }
+                        }
+                        else{
+                            GUI.displayMessage("Nothing happens.");
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                roundStep = 0;
+            }
+            GUI.showPlayerInfo(currentPlayer);
+            this.setNextPlayer();
+        }
+        this.gameOver();
+    }
 }
