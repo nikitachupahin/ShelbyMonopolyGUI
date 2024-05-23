@@ -91,7 +91,6 @@ public class Game {
         this.userInterface=userInterface;
     }
 
-
     public List<Player> getPlayerList() {
         return playerList;
     }
@@ -111,9 +110,21 @@ public class Game {
         }
     }
 
+    private void setNextPlayer() {
+        int lastPlayerNumber = currentPlayer.getPlayerNum();
+        currentPlayer = this.getNextPlayer();
+        if(currentPlayer.getPlayerNum()<lastPlayerNumber) this.round+=1;
+        this.roundStep = 0;
+    }
+
     private int[] rollDice(){
         final int DICEMIN = 1, DICEMAX = 6;
-        return new int[0];
+        int dice1 = getRandomNumber(DICEMIN, DICEMAX);
+        int dice2 = getRandomNumber(DICEMIN, DICEMAX);
+        int[] s = new int[2];
+        s[0]=dice1;
+        s[1]=dice2;
+        return s;
     }
     private boolean randomChoice(){
         return getRandomNumber(0, 1) != 0;
