@@ -1,102 +1,127 @@
 package GameLogic;
 
-enum Color {
+import java.io.Serializable;
+
+enum Colors implements Serializable{
+
     RED("#F33",1),
+
     BLUE("#33F",2),
+
     YELLOW("#EE4",3),
+
     GREEN("#3F3",4),
+
     PURPLE("#E4E",5),
+
     BLACK("#443",6);
+    private final String name;
+    private final int colorNumber;
 
-    private String colorCode;
-    private int playerNumber;
 
-    private Color(String colorCode, int playerNumber) {
-        this.colorCode = colorCode;
-        this.playerNumber = playerNumber;
+
+    Colors(String name, int colorNumber) {
+        this.name = name;
+        this.colorNumber = colorNumber;
     }
 
-    public String getColorCode(){
-        return colorCode;
+
+    public String getName() {
+        return this.name;
     }
 }
 
-public class Player {
-    private int playerNum;
-    private boolean isInJail;
-    private boolean status;
+
+public class Player implements Serializable, Cloneable {
+
+    private boolean status;//Whether this player is in game or quited/lose.
     private String name;
-    private Color color;
-    private boolean continueGame;
-    private int moneyAmount;
-    private Cell coordinates;
+    private int money;
+    private Cell location;
+    private int jailDays;
+    private int playerNo;
+    private boolean auto;
+    private Colors color;
 
-    public Player(int playerNum, String name, boolean continueGame, int moneyAmount, Cell coordinates, Color color) {
-        this.playerNum = playerNum;
-        this.isInJail = false;
-        this.name = name;
-        this.continueGame = continueGame;
-        this.moneyAmount = moneyAmount;
-        this.coordinates = coordinates;
-        this.color = color;
-        this.status = true;
-    }
+    private final int ORIGINALMONEY = 2000;
 
-    public Player(String name, Color color, Cell location) {
+
+
+    public Player(String name, Colors color, Cell location) {
         this.status = true;
         this.name = name;
-        this.moneyAmount = 2000;
-        this.coordinates = location;
-        this.isInJail = false;
-        this.playerNum = color.ordinal()+1;
+        this.money = ORIGINALMONEY;
+        this.location = location;
+        this.jailDays = 0;
+        this.playerNo = color.ordinal()+1;
+        this.auto = false;
         this.color = color;
     }
 
-    public int getPlayerNum() {
-        return playerNum;
-    }
+
+
 
     public String getName() {
         return name;
     }
 
-    public boolean getGameStatus() {
-        return continueGame;
-    }
 
     public int getMoneyAmount() {
-        return moneyAmount;
+        return money;
     }
 
-    public Cell getCoordinates() {
-        return coordinates;
+
+    public Cell getCoordiantes() {
+        return location;
     }
 
-    public Color getColor() {
-        return color;
+
+    public int getPlayerNum() {
+        return playerNo;
     }
 
-    public void endGame() {
-        this.continueGame = false;
+
+    public String getColor() {
+        return color.getName();
     }
 
-    public void changeMoneyAmount(int moneyAmount) {
-        this.moneyAmount = moneyAmount;
+
+    public int getJailDays() {
+        return jailDays;
     }
 
-    public void changeCoordinates(Cell coordinates) {
-        this.coordinates = coordinates;
-    }
 
-    public boolean getJailStatus(){
-        return isInJail;
-    }
-
-    public void setJailStatus(boolean isInJail){
-        this.isInJail = isInJail;
-    }
-
-    public boolean isOnline() {
+    public boolean isOnline(){
         return status;
     }
+
+    public boolean isInJail(){
+        return !(jailDays == 0);
+    }
+
+
+    public boolean isAuto() {
+        return auto;
+    }
+
+
+    public void updateMoney(int amount) {
+        this.money += amount;
+    }
+
+
+    public void setLocation(Cell location){
+        this.location = location;
+    }
+
+
+    public void setJailDays(int jailDays){
+        this.jailDays = jailDays;
+    }
+
+
+    public void quitGame() {
+        this.status = false;
+    }
+
 }

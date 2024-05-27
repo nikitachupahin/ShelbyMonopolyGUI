@@ -34,4 +34,5 @@ public interface UserInterface {
     boolean askForBuying(Property property);
 
     boolean askPayFine();
+    int step1ChooseOperation();
 }
