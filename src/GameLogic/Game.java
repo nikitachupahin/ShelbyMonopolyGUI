@@ -1,5 +1,11 @@
 package GameLogic;
 
+import GameLogicGUI.MonopolyStage;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.ObjectOutputStream;
 import java.util.*;
 
 enum MonopolyMap {
@@ -311,5 +317,62 @@ public class Game {
             this.setNextPlayer();
         }
         this.gameOver();
+    }
+
+    private boolean initNewGame(){
+        /* Init Map */
+        this.cellSet = new HashMap<Integer, Cell>();
+        for (MonopolyMap mapinfo : MonopolyMap.values()) {
+            switch (mapinfo.getType()){
+                case PROPERTY:
+                    cellSet.put(mapinfo.getPosition(),new Property(mapinfo.getType(), mapinfo.getName(), mapinfo.getPosition(), null, mapinfo.getPrice(), mapinfo.getRent()));
+                    break;
+                default:
+                    cellSet.put(mapinfo.getPosition(), new Cell(mapinfo.getType(), mapinfo.getName(), mapinfo.getPosition(), null));
+                    break;
+            }
+        }
+        for(int i = 1; i <= LASTSQUARE; i++) {
+            cellSet.get(i).setNext(cellSet.get((i+1)%(LASTSQUARE+1)));
+        }
+        cellSet.get(LASTSQUARE).setNext(cellSet.get(1));
+        cellSet.get(JAILPOSITION).setNext(cellSet.get(JAILNEXT));
+        /* Init Players */
+        //!!! Whether there can be computer players at the beginning of the game?
+        this.playerList = new ArrayList<Player>();
+        this.amountOfPlayers = GUI.askNumberOfPlayers(MINPLAYERS,MAXPLAYERS);
+        List<Color> color = new ArrayList<Color>();
+        color.add(Color.RED);
+        color.add(Color.BLUE);
+        color.add(Color.YELLOW);
+        color.add(Color.GREEN);
+        color.add(Color.PURPLE);
+        color.add(Color.BLACK);
+        String playerName;
+        for(int i=0;i<this.amountOfPlayers;i++){
+            playerName = GUI.askPlayerName(i+1);
+            playerList.add(new Player(playerName,color.get(i),cellSet.get(1)));
+        }
+        /* Init parameter */
+        this.round = 1;
+        this.roundStep = 0;
+        this.currentPlayer = playerList.get(0);
+        return true;
+    }
+
+    public Game(boolean GUI, InputStream inputStream){
+        this.GUI = new MonopolyStage().getGUIinterface();
+    }
+
+    public void test() {
+        this.initNewGame();
+    }
+
+    public void run() {
+        boolean initSuccessfully = false;
+        while(!initSuccessfully) {
+            initSuccessfully = this.initNewGame();
+        }
+        runGame();
     }
 }

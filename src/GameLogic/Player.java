@@ -2,9 +2,11 @@ package GameLogic;
 
 enum Color {
     RED("#F33",1),
-    GREEN("#3F3",2),
-    BLUE("#33F",3),
-    YELLOW("#EE4",3);
+    BLUE("#33F",2),
+    YELLOW("#EE4",3),
+    GREEN("#3F3",4),
+    PURPLE("#E4E",5),
+    BLACK("#443",6);
 
     private String colorCode;
     private int playerNumber;
@@ -38,6 +40,16 @@ public class Player {
         this.coordinates = coordinates;
         this.color = color;
         this.status = true;
+    }
+
+    public Player(String name, Color color, Cell location) {
+        this.status = true;
+        this.name = name;
+        this.moneyAmount = 2000;
+        this.coordinates = location;
+        this.isInJail = false;
+        this.playerNum = color.ordinal()+1;
+        this.color = color;
     }
 
     public int getPlayerNum() {
