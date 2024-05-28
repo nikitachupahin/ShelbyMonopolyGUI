@@ -15,19 +15,36 @@ public class Controller {
 
     @FXML
     protected Button
-            yesButton, noButton, retireButton;
+            yesButton,
 
 
-    protected boolean yesButtonAvailable, noButtonAvailable, retireButtonAvailable;
 
-    protected boolean yes, no, save, load, retire;
+    retireButton;
+
+    protected boolean yesButtonAvailable,
+
+    noButtonAvailable,
+
+    retireButtonAvailable;
+
+    protected boolean yes,
+
+    no,
+
+    save,
+
+    load,
+
+    retire;
 
 
     @FXML
     protected TextArea messageArea;
 
     @FXML
-    protected ImageView dice1, dice2;
+    protected ImageView dice1,
+
+    dice2;
 
     private Stage primaryStage;
     private Scene scene;
@@ -43,11 +60,48 @@ public class Controller {
     }
 
 
+    @FXML
+    public void yesClick(){
+        clearAllButton();
+        if(yesButtonAvailable){
+            yes=true;
+            yesButton.setText("####");
+        }
+        else yes=false;
+        monopoly.checkRequests();
+    }
+
+
+    @FXML
+    public void retireClick(){
+        clearAllButton();
+        if(retireButtonAvailable){
+            retire=true;
+            retireButton.setText("####");
+        }
+        else retire=false;
+        monopoly.checkRequests();
+    }
+
+    @FXML
+    public void saveClick(){
+        clearAllButton();
+        save = true;
+        monopoly.simpleNoticeWindow("Game saving will begin in next turn.");
+        monopoly.checkRequests();
+    }
+
+
+    public void loadClick(){
+        clearAllButton();
+        load = true;
+        monopoly.simpleNoticeWindow("Game loading will begin in next turn.");
+        monopoly.checkRequests();
+    }
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-
 
 
     public void setScene(Scene scene) {
@@ -66,19 +120,15 @@ public class Controller {
         this.monopoly = monopoly;
     }
 
+
     public TextArea getMessageArea() {
         return messageArea;
     }
 
 
+
     public Button getYesButton() {
         return yesButton;
-    }
-
-
-
-    public Button getNoButton() {
-        return noButton;
     }
 
 
@@ -120,7 +170,6 @@ public class Controller {
     }
 
 
-
     public void setNo(boolean no) {
         this.no = no;
     }
@@ -138,16 +187,14 @@ public class Controller {
     }
 
 
-
-    public ImageView getFirstDice() {
+    public ImageView getDice1() {
         return dice1;
     }
 
 
-    public ImageView getSecondDice() {
+    public ImageView getDice2() {
         return dice2;
     }
-
 
 
     public Button getRetireButton() {
