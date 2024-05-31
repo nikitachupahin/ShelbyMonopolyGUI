@@ -4,7 +4,6 @@ import java.util.List;
 
 public interface UserInterface {
 
-    /* [ Basic Output Functions ] */
     void notify(String msg);
 
     void displayMessage(String msg);
@@ -14,8 +13,6 @@ public interface UserInterface {
     void rollDice(int dice1, int dice2);
 
     void playerMove(Cell beg, Cell end, int steps);
-
-    int makeChoice();
 
     void changePropertyOwner(Property property, Player player);
 
@@ -32,5 +29,6 @@ public interface UserInterface {
     boolean askForBuying(Property property);
 
     boolean askPayFine();
+
     int step1ChooseOperation();
 }

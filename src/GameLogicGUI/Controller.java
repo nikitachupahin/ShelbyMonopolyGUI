@@ -1,7 +1,5 @@
 package GameLogicGUI;
 
-import GameLogic.*;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -17,95 +15,60 @@ public class Controller {
     protected Button
             yesButton,
             noButton,
-
-
-    retireButton;
+            retireButton;
 
     protected boolean yesButtonAvailable,
-
-    noButtonAvailable,
-
-    retireButtonAvailable;
+            noButtonAvailable,
+            retireButtonAvailable;
 
     protected boolean yes,
-
-    no,
-
-    save,
-
-    load,
-
-    retire;
-
+            no,
+            retire;
 
     @FXML
     protected TextArea messageArea;
 
     @FXML
-    protected ImageView dice1,
-
-    dice2;
+    protected ImageView dice1, dice2;
 
     private Stage primaryStage;
     private Scene scene;
     private MonopolyStage monopoly;
 
 
-    public void clearAllButton(){
-        yes=false;
-        no=false;
-        save=false;
-        load=false;
-        retire=false;
+    public void clearAllButton() {
+        yes = false;
+        no = false;
+        retire = false;
     }
 
-
     @FXML
-    public void yesClick(){
+    public void yesClick() {
         clearAllButton();
-        if(yesButtonAvailable){
-            yes=true;
+        if (yesButtonAvailable) {
+            yes = true;
             yesButton.setText("####");
-        }
-        else yes=false;
+        } else yes = false;
         monopoly.checkRequests();
     }
 
     @FXML
-    public void noClick(ActionEvent event){
+    public void noClick(ActionEvent event) {
         clearAllButton();
-        if(noButtonAvailable){
-            no=true;
+        if (noButtonAvailable) {
+            no = true;
             yesButton.setText("####");
-        }
-        else no=false;
+        } else no = false;
         monopoly.checkRequests();
     }
 
     @FXML
-    public void retireClick(){
+    public void retireClick() {
         clearAllButton();
-        if(retireButtonAvailable){
-            retire=true;
+        if (retireButtonAvailable) {
+            retire = true;
             retireButton.setText("####");
-        }
-        else retire=false;
-        monopoly.checkRequests();
-    }
-
-    @FXML
-    public void saveClick(){
-        clearAllButton();
-        save = true;
-        monopoly.simpleNoticeWindow("Game saving will begin in next turn.");
-        monopoly.checkRequests();
-    }
-
-
-    public void loadClick(){
-        clearAllButton();
-        load = true;
-        monopoly.simpleNoticeWindow("Game loading will begin in next turn.");
+        } else retire = false;
         monopoly.checkRequests();
     }
 
@@ -113,29 +76,25 @@ public class Controller {
         this.primaryStage = primaryStage;
     }
 
-
     public void setScene(Scene scene) {
         this.scene = scene;
     }
-
-
 
     public Stage getPrimaryStage() {
         return primaryStage;
     }
 
-
+    public Scene getScene() {
+        return scene;
+    }
 
     public void setMonopoly(MonopolyStage monopoly) {
         this.monopoly = monopoly;
     }
 
-
     public TextArea getMessageArea() {
         return messageArea;
     }
-
-
 
     public Button getYesButton() {
         return yesButton;
@@ -150,7 +109,6 @@ public class Controller {
     }
 
 
-
     public void setNoButtonAvailable(boolean noButtonAvailable) {
         this.noButtonAvailable = noButtonAvailable;
     }
@@ -158,15 +116,6 @@ public class Controller {
 
     public void setRetireButtonAvailable(boolean retireButtonAvailable) {
         this.retireButtonAvailable = retireButtonAvailable;
-    }
-
-
-    public boolean getSave() {
-        return save;
-    }
-
-    public boolean getLoad() {
-        return load;
     }
 
     public boolean getRetire() {
@@ -187,11 +136,9 @@ public class Controller {
     }
 
 
-
     public void setYes(boolean yes) {
         this.yes = yes;
     }
-
 
 
     public void setRetire(boolean retire) {

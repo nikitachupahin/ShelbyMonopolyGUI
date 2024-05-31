@@ -15,6 +15,7 @@ enum Colors implements Serializable {
     PURPLE("#E4E", 5),
 
     BLACK("#443", 6);
+
     private final String name;
     private final int colorNumber;
 
@@ -24,22 +25,24 @@ enum Colors implements Serializable {
         this.colorNumber = colorNumber;
     }
 
-
     public String getName() {
         return this.name;
+    }
+
+    public int getColorNumber() {
+        return colorNumber;
     }
 }
 
 
-public class Player implements Serializable, Cloneable {
+public class Player implements Serializable {
 
-    private boolean status;//Whether this player is in game or quited/lose.
+    private boolean status;
     private String name;
     private int money;
     private Cell location;
     private int jailDays;
     private int playerNo;
-    private boolean auto;
     private Colors color;
 
     private final int ORIGINALMONEY = 2000;
@@ -52,7 +55,6 @@ public class Player implements Serializable, Cloneable {
         this.location = location;
         this.jailDays = 0;
         this.playerNo = color.ordinal() + 1;
-        this.auto = false;
         this.color = color;
     }
 
@@ -67,7 +69,7 @@ public class Player implements Serializable, Cloneable {
     }
 
 
-    public Cell getCoordiantes() {
+    public Cell getCoordinates() {
         return location;
     }
 

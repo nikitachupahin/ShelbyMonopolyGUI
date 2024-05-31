@@ -2,10 +2,8 @@ package GameLogic;
 
 import java.io.*;
 import java.util.*;
-import GameLogicGUI.*;
 
-
-enum MonopolyMap implements Serializable{
+enum MonopolyMap implements Serializable {
     Jail(0, "Jail", Type.JAIL),
 
     Go(1, "GO", Type.REST_ZONE),
@@ -47,6 +45,7 @@ enum MonopolyMap implements Serializable{
     Chance3(19, "Chance 3", Type.CHANCE),
 
     TaiO(20, "Tai O", Type.PROPERTY, 650, 30);
+
     private String name;
     private int price;
     private int rent;
@@ -54,7 +53,7 @@ enum MonopolyMap implements Serializable{
     private Type type;
 
 
-    public Type getType(){
+    public Type getType() {
         return this.type;
     }
 
@@ -78,14 +77,15 @@ enum MonopolyMap implements Serializable{
         return this.position;
     }
 
-    MonopolyMap(int position, String name, Type type){
+    MonopolyMap(int position, String name, Type type) {
         this.position = position;
         this.name = name;
         this.type = type;
         this.price = 0;
         this.rent = 0;
     }
-    MonopolyMap(int position, String name, Type type, int price, int rent){
+
+    MonopolyMap(int position, String name, Type type, int price, int rent) {
         this.position = position;
         this.name = name;
         this.type = type;
@@ -95,12 +95,10 @@ enum MonopolyMap implements Serializable{
 }
 
 
+public class Game implements Serializable, Runnable {
 
-public class Game implements Serializable, Runnable{
-    /* [ User Interface ] */
     private UserInterface UI;
 
-    /* [ Constants ] */
     private final int FIRSTSQUARE = 1, LASTSQUARE = 20;
     private final int JAILPOSITION = 0, JAILNEXT = 7;
     private final int MINPLAYERS = 2, MAXPLAYERS = 6;
@@ -108,132 +106,121 @@ public class Game implements Serializable, Runnable{
     private final int JAILDAYS = 3;
     private final int GAMELENGTH = 100;
 
-    /* [ Compulsory Game Data / Variables ] */
     private int numberOfPlayers;
     private List<Player> playerList;
-    private Map<Integer,Cell> squareSet;
+    private Map<Integer, Cell> squareSet;
     private int round;
     private int roundStep;//Detail in method runGame
     private Player currentPlayer;
-
 
     public List<Player> getPlayerList() {
         return playerList;
     }
 
-
     public Map<Integer, Cell> getSquareSet() {
         return squareSet;
     }
 
-
-
     private Player getNextPlayer() {
-        int i=0;
+        int i = 0;
         boolean foundCurrentPlayer = false;
-        while(true){
-            if(foundCurrentPlayer){
-                if(playerList.get(i).isOnline()) break;
+        while (true) {
+            if (foundCurrentPlayer) {
+                if (playerList.get(i).isOnline()) break;
             }
-            if(playerList.get(i) == currentPlayer) foundCurrentPlayer = true;
+            if (playerList.get(i) == currentPlayer) foundCurrentPlayer = true;
             i++;
-            i%=numberOfPlayers;
+            i %= numberOfPlayers;
         }
         return playerList.get(i);
     }
 
-
     private void setNextPlayer() {
         int lastPlayerNumber = currentPlayer.getPlayerNum();
         currentPlayer = this.getNextPlayer();
-        if(currentPlayer.getPlayerNum()<lastPlayerNumber) this.round+=1;
+        if (currentPlayer.getPlayerNum() < lastPlayerNumber) this.round += 1;
         this.roundStep = 0;
     }
 
-    private int getRandomNumber(int min, int max){
+    private int getRandomNumber(int min, int max) {
         Random random = new Random();
-        return random.nextInt(max-min+1) + min;
+        return random.nextInt(max - min + 1) + min;
     }
 
-    private int[] rollDice(){
+    private int[] rollDice() {
         final int DICEMIN = 1, DICEMAX = 6;
         int dice1 = getRandomNumber(DICEMIN, DICEMAX);
         int dice2 = getRandomNumber(DICEMIN, DICEMAX);
         UI.rollDice(dice1, dice2);
         int[] s = new int[2];
-        s[0]=dice1;
-        s[1]=dice2;
+        s[0] = dice1;
+        s[1] = dice2;
         return s;
     }
 
-    private int randomChance(){
+    private int randomChance() {
         final int CHANCEMULTIPLE = 10, CHANCEMIN = -30, CHANCEMAX = 20;
         return getRandomNumber(CHANCEMIN, CHANCEMAX) * CHANCEMULTIPLE;
     }
 
-    private boolean isGameEnds(){
-        return getNextPlayer()==this.currentPlayer || this.round>GAMELENGTH;
+    private boolean isGameEnds() {
+        return getNextPlayer() == this.currentPlayer || this.round > GAMELENGTH;
     }
 
-    private boolean askPayFine(){
+    private boolean askPayFine() {
         return UI.askPayFine();
     }
 
-    private boolean checkPlayerOut(Player player){
-        if(!player.isOnline())return true;
-        if(player.getMoneyAmount()<=0||!player.isOnline()){
+    private boolean checkPlayerOut(Player player) {
+        if (!player.isOnline()) return true;
+        if (player.getMoneyAmount() <= 0) {
             Cell tmp = squareSet.get(FIRSTSQUARE);
-            do{
-                if(tmp instanceof Property){
-                    if(((Property) tmp).getOwner()==player) {
+            do {
+                if (tmp instanceof Property) {
+                    if (((Property) tmp).getOwner() == player) {
                         ((Property) tmp).setOwner(null);
-                        UI.changePropertyOwner(((Property) tmp),player);
+                        UI.changePropertyOwner(((Property) tmp), player);
                     }
                 }
                 tmp = tmp.getNext();
-            }while(tmp!=squareSet.get(FIRSTSQUARE));
+            } while (tmp != squareSet.get(FIRSTSQUARE));
             player.quitGame();
-            UI.notify("Player "+player.getName()+" has no money left and is out of game.");
+            UI.notify("Player " + player.getName() + " has no money left and is out of game.");
             return true;
         }
         return false;
     }
 
-
-    private void moveCurrentPlayer(int steps){
+    private void moveCurrentPlayer(int steps) {
         int i;
-        Cell tmp = currentPlayer.getCoordiantes();
-        for(i=1;i<=steps;i++) tmp = tmp.getNext();
-        UI.playerMove(currentPlayer.getCoordiantes(), tmp, steps);
-        if(currentPlayer.getCoordiantes().getCoord()>tmp.getCoord()){
+        Cell tmp = currentPlayer.getCoordinates();
+        for (i = 1; i <= steps; i++) tmp = tmp.getNext();
+        UI.playerMove(currentPlayer.getCoordinates(), tmp, steps);
+        if (currentPlayer.getCoordinates().getCoord() > tmp.getCoord()) {
             UI.displayMessage("Player passes through GO square and gain salary of HKD 1500.");
             currentPlayer.updateMoney(SALARY);
-            UI.playerUpdateMoney(currentPlayer,SALARY);
+            UI.playerUpdateMoney(currentPlayer, SALARY);
         }
         currentPlayer.setLocation(tmp);
     }
 
-
-    public ArrayList getSortedPlayers(){
+    public ArrayList getSortedPlayers() {
         ArrayList<Player> sortedPlayerList = new ArrayList<Player>();
-        for ( Player p : playerList ) {
+        for (Player p : playerList) {
             sortedPlayerList.add(p);
         }
         sortedPlayerList.sort(new PlayerComparator());
         return sortedPlayerList;
     }
 
-
     private void showScoreBoard() {
         UI.displayResult(this.getSortedPlayers());
     }
 
-
-    private void gameOver(){
+    private void gameOver() {
         UI.notify("Game Over");
         this.showScoreBoard();
     }
-
 
     public void runGame() {
         int userChoice;
@@ -241,19 +228,13 @@ public class Game implements Serializable, Runnable{
         while (!this.isGameEnds()) {
             UI.displayMessage("\nRound " + this.round);
             UI.showPlayerInfo(currentPlayer);
-
-            /* Round Step 0 */
-            // [1] Continue [2] Report [3] Set Auto [4] Retire
-            if (roundStep == 0) {  // Удалите условие currentPlayer.isAuto()
+            // Round Step 0
+            if (roundStep == 0) {
                 userChoice = UI.step1ChooseOperation();
                 switch (userChoice) {
                     case 2:
                         this.showScoreBoard();
                         continue;
-                    case 3:
-                        // Удалите функционал автопилота
-                        // currentPlayer.setAuto(true);
-                        break;
                     case 4:
                         currentPlayer.quitGame();
                         this.checkPlayerOut(currentPlayer);
@@ -266,8 +247,7 @@ public class Game implements Serializable, Runnable{
                 roundStep++;
             }
 
-            /* Round Step 1 */
-            // roll dice and move
+            // Round Step 1
             if (roundStep == 1) {
                 dice = this.rollDice();
                 // If player is in jail
@@ -302,10 +282,10 @@ public class Game implements Serializable, Runnable{
                 roundStep++;
             }
 
-            /* Round Step 2 */
+            // Round Step 2
             // Check the new square
             if (roundStep == 2) {
-                switch (currentPlayer.getCoordiantes().getType()) {
+                switch (currentPlayer.getCoordinates().getType()) {
                     case TAX:
                         int tax = (((currentPlayer.getMoneyAmount() + ROUND) / TAXDIV) + ROUND) / TAXDIV * TAXDIV;
                         UI.displayMessage("Player " + currentPlayer.getName() + " should pay tax of HKD" + tax + ".");
@@ -332,7 +312,7 @@ public class Game implements Serializable, Runnable{
                         UI.playerGotoJail(currentPlayer);
                         break;
                     case PROPERTY:
-                        Property curProperty = (Property) currentPlayer.getCoordiantes();
+                        Property curProperty = (Property) currentPlayer.getCoordinates();
                         UI.displayMessage("Player " + currentPlayer.getName() + " arrives at " + curProperty.getName() + " (Price:" + curProperty.getPrice() + ", Rent:" + curProperty.getRent() + ").");
                         if (curProperty.getOwner() != null && curProperty.getOwner() != currentPlayer) {
                             UI.displayMessage("This property belongs to " + curProperty.getOwner().getName() + ". " + currentPlayer.getName() + " should pay HKD " + curProperty.getRent() + ".");
@@ -373,27 +353,27 @@ public class Game implements Serializable, Runnable{
         this.gameOver();
     }
 
-    private boolean initNewGame(){
-        /* Init Map */
+    private boolean initNewGame() {
+        // Init Map
         this.squareSet = new HashMap<Integer, Cell>();
-        for (MonopolyMap mapinfo: MonopolyMap.values()) {
-            switch (mapinfo.getType()){
+        for (MonopolyMap mapinfo : MonopolyMap.values()) {
+            switch (mapinfo.getType()) {
                 case PROPERTY:
-                    squareSet.put(mapinfo.getPosition(),new Property(mapinfo.getType(), mapinfo.getName(), mapinfo.getPosition(), null, mapinfo.getPrice(), mapinfo.getRent()));
+                    squareSet.put(mapinfo.getPosition(), new Property(mapinfo.getType(), mapinfo.getName(), mapinfo.getPosition(), null, mapinfo.getPrice(), mapinfo.getRent()));
                     break;
                 default:
                     squareSet.put(mapinfo.getPosition(), new Cell(mapinfo.getType(), mapinfo.getName(), mapinfo.getPosition(), null));
                     break;
             }
         }
-        for(int i = 1; i <= LASTSQUARE; i++) {
-            squareSet.get(i).setNext(squareSet.get((i+1)%(LASTSQUARE+1)));
+        for (int i = 1; i <= LASTSQUARE; i++) {
+            squareSet.get(i).setNext(squareSet.get((i + 1) % (LASTSQUARE + 1)));
         }
         squareSet.get(LASTSQUARE).setNext(squareSet.get(1));
         squareSet.get(JAILPOSITION).setNext(squareSet.get(JAILNEXT));
-        /* Init Players */
+        // Init Players
         this.playerList = new ArrayList<Player>();
-        this.numberOfPlayers = UI.askNumberOfPlayers(MINPLAYERS,MAXPLAYERS);
+        this.numberOfPlayers = UI.askNumberOfPlayers(MINPLAYERS, MAXPLAYERS);
         List<Colors> color = new ArrayList<Colors>();
         color.add(Colors.RED);
         color.add(Colors.BLUE);
@@ -402,22 +382,20 @@ public class Game implements Serializable, Runnable{
         color.add(Colors.PURPLE);
         color.add(Colors.BLACK);
         String playerName;
-        for(int i=0;i<this.numberOfPlayers;i++){
-            playerName = UI.askPlayerName(i+1);
-            playerList.add(new Player(playerName,color.get(i),squareSet.get(1)));
+        for (int i = 0; i < this.numberOfPlayers; i++) {
+            playerName = UI.askPlayerName(i + 1);
+            playerList.add(new Player(playerName, color.get(i), squareSet.get(1)));
         }
-        /* Init parameter */
+        // Init parameters
         this.round = 1;
         this.roundStep = 0;
         this.currentPlayer = playerList.get(0);
         return true;
     }
 
-    public Game(boolean GUI, InputStream inputStream){
-        if(GUI) this.UI = new MonopolyStage().getGUIinterface();
+    public Game(UserInterface UI) {
+        this.UI = UI;
     }
-
-    public Game(UserInterface UI){ this.UI = UI; }
 
     @Override
     public void run() {
