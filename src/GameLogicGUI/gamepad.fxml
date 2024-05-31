@@ -13,460 +13,549 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox id="base" fx:id="base" maxHeight="720.0" maxWidth="960.0" minHeight="720.0" minWidth="960.0" prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameLogicGUI.Controller">
+<HBox id="base" fx:id="base" maxHeight="720.0" maxWidth="960.0" minHeight="720.0" minWidth="960.0" prefHeight="720.0"
+      prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="GameLogicGUI.Controller">
     <children>
-        <GridPane maxHeight="635.0" maxWidth="605.0" minHeight="635.0" minWidth="605.0" prefHeight="635.0" prefWidth="605.0">
+        <GridPane maxHeight="635.0" maxWidth="605.0" minHeight="635.0" minWidth="605.0" prefHeight="635.0"
+                  prefWidth="605.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
             <HBox.margin>
-                <Insets />
+                <Insets/>
             </HBox.margin>
             <children>
                 <VBox id="s11" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <children>
-                        <FlowPane fx:id="squarePane11" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <FlowPane fx:id="squarePane11" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <padding>
-                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0" />
+                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0"/>
                     </padding>
                 </VBox>
                 <VBox id="s12" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                     <children>
-                        <FlowPane fx:id="squarePane12" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
-                        <Button fx:id="owner12" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0" mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" " />
+                        <FlowPane fx:id="squarePane12" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
+                        <Button fx:id="owner12" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0"
+                                mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" "/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0" />
+                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0"/>
                     </padding>
                 </VBox>
                 <VBox id="s13" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                     <children>
-                        <FlowPane fx:id="squarePane13" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <FlowPane fx:id="squarePane13" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0" />
+                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0"/>
                     </padding>
                 </VBox>
                 <VBox id="s14" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
                     <children>
-                        <FlowPane fx:id="squarePane14" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
-                        <Button fx:id="owner14" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0" mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" " />
+                        <FlowPane fx:id="squarePane14" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
+                        <Button fx:id="owner14" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0"
+                                mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" "/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0" />
+                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0"/>
                     </padding>
                 </VBox>
                 <VBox id="s15" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4">
                     <children>
-                        <FlowPane fx:id="squarePane15" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
-                        <Button fx:id="owner15" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0" mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" " />
+                        <FlowPane fx:id="squarePane15" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
+                        <Button fx:id="owner15" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0"
+                                mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" "/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0" />
+                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0"/>
                     </padding>
                 </VBox>
                 <VBox id="s16" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5">
                     <children>
-                        <FlowPane fx:id="squarePane16" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <FlowPane fx:id="squarePane16" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0" />
+                        <Insets bottom="7.0" left="5.0" right="8.0" top="5.0"/>
                     </padding>
                 </VBox>
                 <VBox id="s6" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="5">
                     <children>
-                        <FlowPane fx:id="squarePane0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="100.0" />
-                        <FlowPane fx:id="squarePane6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="100.0" />
+                        <FlowPane fx:id="squarePane0" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="100.0"/>
+                        <FlowPane fx:id="squarePane6" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0" />
+                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0"/>
                     </padding>
                 </VBox>
-                <VBox id="s5" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                <VBox id="s5" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1"
+                      GridPane.rowIndex="5">
                     <children>
-                        <Button fx:id="owner5" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0" mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" " />
-                        <FlowPane fx:id="squarePane5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="owner5" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0"
+                                mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" "/>
+                        <FlowPane fx:id="squarePane5" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0" />
+                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0"/>
                     </padding>
                 </VBox>
-                <VBox id="s4" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                <VBox id="s4" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2"
+                      GridPane.rowIndex="5">
                     <children>
-                        <FlowPane fx:id="squarePane4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <FlowPane fx:id="squarePane4" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0" />
+                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0"/>
                     </padding>
                 </VBox>
-                <VBox id="s3" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                <VBox id="s3" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308"
+                      maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3"
+                      GridPane.rowIndex="5">
                     <children>
-                        <Button fx:id="owner3" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0" mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" " />
-                        <FlowPane fx:id="squarePane3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="owner3" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0"
+                                mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" "/>
+                        <FlowPane fx:id="squarePane3" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0" />
+                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0"/>
                     </padding>
                 </VBox>
-                <VBox id="s2" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                <VBox id="s2" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4"
+                      GridPane.rowIndex="5">
                     <children>
-                        <Button fx:id="owner2" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0" mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" " />
-                        <FlowPane fx:id="squarePane2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="owner2" maxHeight="12.0" maxWidth="1.7976931348623157E308" minHeight="12.0"
+                                mnemonicParsing="false" prefHeight="12.0" styleClass="OwnerDisplay" text=" "/>
+                        <FlowPane fx:id="squarePane2" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0" />
+                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0"/>
                     </padding>
                 </VBox>
-                <VBox id="s1" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                <VBox id="s1" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5"
+                      GridPane.rowIndex="5">
                     <children>
-                        <FlowPane fx:id="squarePane1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <FlowPane fx:id="squarePane1" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0" />
+                        <Insets bottom="8.0" left="5.0" right="8.0" top="6.0"/>
                     </padding>
                 </VBox>
                 <HBox id="s10" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                     <children>
-                        <FlowPane fx:id="squarePane10" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
-                        <Button fx:id="owner10" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity" minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay" text=" " />
+                        <FlowPane fx:id="squarePane10" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
+                        <Button fx:id="owner10" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity"
+                                minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay"
+                                text=" "/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="4.0" right="8.0" top="5.0" />
+                        <Insets bottom="8.0" left="4.0" right="8.0" top="5.0"/>
                     </padding>
                 </HBox>
                 <HBox id="s9" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                     <children>
-                        <FlowPane fx:id="squarePane9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <FlowPane fx:id="squarePane9" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="4.0" right="8.0" top="5.0" />
+                        <Insets bottom="8.0" left="4.0" right="8.0" top="5.0"/>
                     </padding>
                 </HBox>
                 <HBox id="s8" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
                     <children>
-                        <FlowPane fx:id="squarePane8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
-                        <Button fx:id="owner8" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity" minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay" text=" " />
+                        <FlowPane fx:id="squarePane8" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
+                        <Button fx:id="owner8" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity"
+                                minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay"
+                                text=" "/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="4.0" right="8.0" top="5.0" />
+                        <Insets bottom="8.0" left="4.0" right="8.0" top="5.0"/>
                     </padding>
                 </HBox>
                 <HBox id="s7" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
                     <children>
-                        <FlowPane fx:id="squarePane7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
-                        <Button fx:id="owner7" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity" minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay" text=" " />
+                        <FlowPane fx:id="squarePane7" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
+                        <Button fx:id="owner7" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity"
+                                minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay"
+                                text=" "/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="4.0" right="8.0" top="5.0" />
+                        <Insets bottom="8.0" left="4.0" right="8.0" top="5.0"/>
                     </padding>
                 </HBox>
-                <HBox id="s17" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                <HBox id="s17" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5"
+                      GridPane.rowIndex="1">
                     <children>
-                        <Button fx:id="owner17" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity" minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay" text=" " />
-                        <FlowPane fx:id="squarePane17" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="owner17" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity"
+                                minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay"
+                                text=" "/>
+                        <FlowPane fx:id="squarePane17" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="7.0" right="7.0" top="5.0" />
+                        <Insets bottom="8.0" left="7.0" right="7.0" top="5.0"/>
                     </padding>
                 </HBox>
-                <HBox id="s18" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                <HBox id="s18" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5"
+                      GridPane.rowIndex="2">
                     <children>
-                        <Button fx:id="owner18" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity" minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay" text=" " />
-                        <FlowPane fx:id="squarePane18" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="owner18" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity"
+                                minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay"
+                                text=" "/>
+                        <FlowPane fx:id="squarePane18" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="7.0" right="7.0" top="5.0" />
+                        <Insets bottom="8.0" left="7.0" right="7.0" top="5.0"/>
                     </padding>
                 </HBox>
-                <HBox id="s19" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                <HBox id="s19" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5"
+                      GridPane.rowIndex="3">
                     <children>
-                        <FlowPane fx:id="squarePane19" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <FlowPane fx:id="squarePane19" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="7.0" right="7.0" top="5.0" />
+                        <Insets bottom="8.0" left="7.0" right="7.0" top="5.0"/>
                     </padding>
                 </HBox>
-                <HBox id="s20" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                <HBox id="s20" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5"
+                      GridPane.rowIndex="4">
                     <children>
-                        <Button fx:id="owner20" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity" minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay" text=" " />
-                        <FlowPane fx:id="squarePane20" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="owner20" maxHeight="1.7976931348623157E308" maxWidth="12.0" minHeight="-Infinity"
+                                minWidth="12.0" mnemonicParsing="false" prefWidth="12.0" styleClass="OwnerDisplay"
+                                text=" "/>
+                        <FlowPane fx:id="squarePane20" maxHeight="1.7976931348623157E308"
+                                  maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="100.0"/>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="3.0" top="3.0" />
+                        <Insets bottom="3.0" top="3.0"/>
                     </GridPane.margin>
                     <padding>
-                        <Insets bottom="8.0" left="7.0" right="7.0" top="5.0" />
+                        <Insets bottom="8.0" left="7.0" right="7.0" top="5.0"/>
                     </padding>
                 </HBox>
-                <ImageView fx:id="dice1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                <ImageView fx:id="dice2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                <Button fx:id="yesButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#yesClick" prefHeight="50.0" prefWidth="100.0" styleClass="BigButton" text="Roll Dice" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="4">
+                <ImageView fx:id="dice1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true"
+                           GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3"
+                           GridPane.valignment="CENTER"/>
+                <ImageView fx:id="dice2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true"
+                           GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3"
+                           GridPane.valignment="CENTER"/>
+                <Button fx:id="yesButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false" onAction="#yesClick" prefHeight="50.0" prefWidth="100.0"
+                        styleClass="BigButton" text="Roll Dice" GridPane.columnIndex="2" GridPane.rowIndex="4">
                     <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                     </GridPane.margin>
                 </Button>
-                <ImageView fitHeight="180.0" fitWidth="404.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                <Button fx:id="noButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false" onAction="#noClick" prefHeight="50.0" prefWidth="100.0"
+                        styleClass="BigButton" text="Nothing" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                    <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </GridPane.margin>
+                </Button>
+                <ImageView fitHeight="180.0" fitWidth="404.0" pickOnBounds="true" preserveRatio="true" smooth="false"
+                           GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2"
+                           GridPane.valignment="BOTTOM">
                     <image>
-                        <Image url="@img/title.jpg" />
+                        <Image url="@img/title.jpg"/>
                     </image>
                 </ImageView>
             </children>
         </GridPane>
         <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="320.0">
             <children>
-                <ImageView id="scoreBoardImage" fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView id="scoreBoardImage" fitHeight="70.0" fitWidth="200.0" pickOnBounds="true"
+                           preserveRatio="true">
                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </VBox.margin>
                     <image>
-                        <Image url="@img/scoreboard.png" />
+                        <Image url="@img/scoreboard.png"/>
                     </image>
                 </ImageView>
                 <HBox prefHeight="55.0" prefWidth="200.0">
                     <children>
-                        <ImageView fx:id="playerIcon1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerIcon1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </ImageView>
-                        <Label fx:id="nameLabel1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" styleClass="nameLabel" text="Player1">
+                        <Label fx:id="nameLabel1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               prefWidth="100.0" styleClass="nameLabel" text="Player1">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
-                        <Label fx:id="moneyLabel1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="70.0" styleClass="moneyLabel" text="Money1">
+                        <Label fx:id="moneyLabel1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               minWidth="70.0" styleClass="moneyLabel" text="Money1">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
                     </children>
                     <VBox.margin>
-                        <Insets />
+                        <Insets/>
                     </VBox.margin>
                     <padding>
-                        <Insets left="5.0" right="5.0" />
+                        <Insets left="5.0" right="5.0"/>
                     </padding>
                 </HBox>
                 <HBox prefHeight="55.0" prefWidth="200.0">
                     <children>
-                        <ImageView fx:id="playerIcon2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerIcon2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </ImageView>
-                        <Label fx:id="nameLabel2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" styleClass="nameLabel" text="Player2">
+                        <Label fx:id="nameLabel2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               prefWidth="100.0" styleClass="nameLabel" text="Player2">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
-                        <Label fx:id="moneyLabel2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="70.0" styleClass="moneyLabel" text="Money2">
+                        <Label fx:id="moneyLabel2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               minWidth="70.0" styleClass="moneyLabel" text="Money2">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
                     </children>
                     <VBox.margin>
-                        <Insets />
+                        <Insets/>
                     </VBox.margin>
                     <padding>
-                        <Insets left="5.0" right="5.0" />
+                        <Insets left="5.0" right="5.0"/>
                     </padding>
                 </HBox>
                 <HBox prefHeight="55.0" prefWidth="200.0">
                     <children>
-                        <ImageView fx:id="playerIcon3" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerIcon3" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </ImageView>
-                        <Label fx:id="nameLabel3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" styleClass="nameLabel">
+                        <Label fx:id="nameLabel3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               prefWidth="100.0" styleClass="nameLabel">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
-                        <Label fx:id="moneyLabel3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="70.0" styleClass="moneyLabel">
+                        <Label fx:id="moneyLabel3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               minWidth="70.0" styleClass="moneyLabel">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
                     </children>
                     <VBox.margin>
-                        <Insets />
+                        <Insets/>
                     </VBox.margin>
                     <padding>
-                        <Insets left="5.0" right="5.0" />
+                        <Insets left="5.0" right="5.0"/>
                     </padding>
                 </HBox>
                 <HBox prefHeight="55.0" prefWidth="200.0">
                     <children>
-                        <ImageView fx:id="playerIcon4" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerIcon4" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </ImageView>
-                        <Label fx:id="nameLabel4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" styleClass="nameLabel">
+                        <Label fx:id="nameLabel4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               prefWidth="100.0" styleClass="nameLabel">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
-                        <Label fx:id="moneyLabel4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="70.0" styleClass="moneyLabel">
+                        <Label fx:id="moneyLabel4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               minWidth="70.0" styleClass="moneyLabel">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
                     </children>
                     <padding>
-                        <Insets left="5.0" right="5.0" />
+                        <Insets left="5.0" right="5.0"/>
                     </padding>
                     <VBox.margin>
-                        <Insets />
+                        <Insets/>
                     </VBox.margin>
                 </HBox>
                 <HBox prefHeight="55.0" prefWidth="200.0">
                     <children>
-                        <ImageView fx:id="playerIcon5" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerIcon5" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </ImageView>
-                        <Label fx:id="nameLabel5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" styleClass="nameLabel">
+                        <Label fx:id="nameLabel5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               prefWidth="100.0" styleClass="nameLabel">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
-                        <Label fx:id="moneyLabel5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="70.0" styleClass="moneyLabel">
+                        <Label fx:id="moneyLabel5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               minWidth="70.0" styleClass="moneyLabel">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
                     </children>
                     <padding>
-                        <Insets left="5.0" right="5.0" />
+                        <Insets left="5.0" right="5.0"/>
                     </padding>
                     <VBox.margin>
-                        <Insets />
+                        <Insets/>
                     </VBox.margin>
                 </HBox>
                 <HBox prefHeight="55.0" prefWidth="200.0">
                     <children>
-                        <ImageView fx:id="playerIcon6" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerIcon6" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </ImageView>
-                        <Label fx:id="nameLabel6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" styleClass="nameLabel">
+                        <Label fx:id="nameLabel6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               prefWidth="100.0" styleClass="nameLabel">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
-                        <Label fx:id="moneyLabel6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="70.0" styleClass="moneyLabel">
+                        <Label fx:id="moneyLabel6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               minWidth="70.0" styleClass="moneyLabel">
                             <HBox.margin>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0"/>
                             </HBox.margin>
                         </Label>
                     </children>
                     <padding>
-                        <Insets left="5.0" right="5.0" />
+                        <Insets left="5.0" right="5.0"/>
                     </padding>
                     <VBox.margin>
-                        <Insets />
+                        <Insets/>
                     </VBox.margin>
                 </HBox>
-                <TextArea fx:id="messageArea" maxHeight="1.7976931348623157E308" maxWidth="230.0" prefHeight="130.0" prefWidth="230.0" wrapText="true">
+                <TextArea fx:id="messageArea" maxHeight="1.7976931348623157E308" maxWidth="230.0" prefHeight="130.0"
+                          prefWidth="230.0" wrapText="true">
                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="20.0"/>
                     </VBox.margin>
                 </TextArea>
                 <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Button id="retireButton" fx:id="retireButton" minHeight="70.0" minWidth="230.0" mnemonicParsing="false" onAction="#retireClick" prefHeight="70.0" prefWidth="70.0" text="Retire">
+                        <Button id="retireButton" fx:id="retireButton" minHeight="70.0" minWidth="230.0"
+                                mnemonicParsing="false" onAction="#retireClick" prefHeight="70.0" prefWidth="70.0"
+                                text="Retire">
                             <HBox.margin>
-                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                             </HBox.margin>
                         </Button>
                     </children>
                     <VBox.margin>
-                        <Insets bottom="5.0" />
+                        <Insets bottom="5.0"/>
                     </VBox.margin>
                 </HBox>
             </children>
             <HBox.margin>
-                <Insets left="20.0" />
+                <Insets left="20.0"/>
             </HBox.margin>
         </VBox>
     </children>
     <padding>
-        <Insets bottom="36.0" left="48.0" right="24.0" top="36.0" />
+        <Insets bottom="36.0" left="48.0" right="24.0" top="36.0"/>
     </padding>
 </HBox>

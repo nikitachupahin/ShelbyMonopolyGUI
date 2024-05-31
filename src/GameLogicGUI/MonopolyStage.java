@@ -298,6 +298,7 @@ public class MonopolyStage extends Application{
         int s = -1;
         // [1] Continue [4] Retire [5] Save [6] load
         controller.getYesButton().setText("Roll Dice");
+        controller.getNoButton().setText("Nothing");
         controller.getRetireButton().setText("Retire");
         controller.setYesButtonAvailable(true);
 
@@ -343,7 +344,7 @@ public class MonopolyStage extends Application{
         final int ID = Request.AskForBuying.getID();
         int s=-1;
         controller.getYesButton().setText("Buy this!");
-
+        controller.getNoButton().setText("Ignore");
         controller.setYesButtonAvailable(true);
         controller.setNoButtonAvailable(true);
         if(controller.getNo()) { s=2; }
@@ -370,7 +371,7 @@ public class MonopolyStage extends Application{
         final int ID = Request.AskPayFine.getID();
         int s=-1;
         controller.getYesButton().setText("Pay fine");
-
+        controller.getNoButton().setText("Ignore");
         controller.setYesButtonAvailable(true);
         controller.setNoButtonAvailable(true);
         if(controller.getNo()) { s=2; }

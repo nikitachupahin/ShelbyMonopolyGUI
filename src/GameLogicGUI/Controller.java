@@ -16,7 +16,7 @@ public class Controller {
     @FXML
     protected Button
             yesButton,
-
+            noButton,
 
 
     retireButton;
@@ -71,6 +71,16 @@ public class Controller {
         monopoly.checkRequests();
     }
 
+    @FXML
+    public void noClick(ActionEvent event){
+        clearAllButton();
+        if(noButtonAvailable){
+            no=true;
+            yesButton.setText("####");
+        }
+        else no=false;
+        monopoly.checkRequests();
+    }
 
     @FXML
     public void retireClick(){
@@ -131,7 +141,9 @@ public class Controller {
         return yesButton;
     }
 
-
+    public Button getNoButton() {
+        return noButton;
+    }
 
     public void setYesButtonAvailable(boolean yesButtonAvailable) {
         this.yesButtonAvailable = yesButtonAvailable;
