@@ -2,22 +2,21 @@ package GameLogic;
 
 import java.io.Serializable;
 
-enum Colors implements Serializable{
+enum Colors implements Serializable {
 
-    RED("#F33",1),
+    RED("#F33", 1),
 
-    BLUE("#33F",2),
+    BLUE("#33F", 2),
 
-    YELLOW("#EE4",3),
+    YELLOW("#EE4", 3),
 
-    GREEN("#3F3",4),
+    GREEN("#3F3", 4),
 
-    PURPLE("#E4E",5),
+    PURPLE("#E4E", 5),
 
-    BLACK("#443",6);
+    BLACK("#443", 6);
     private final String name;
     private final int colorNumber;
-
 
 
     Colors(String name, int colorNumber) {
@@ -46,19 +45,16 @@ public class Player implements Serializable, Cloneable {
     private final int ORIGINALMONEY = 2000;
 
 
-
     public Player(String name, Colors color, Cell location) {
         this.status = true;
         this.name = name;
         this.money = ORIGINALMONEY;
         this.location = location;
         this.jailDays = 0;
-        this.playerNo = color.ordinal()+1;
+        this.playerNo = color.ordinal() + 1;
         this.auto = false;
         this.color = color;
     }
-
-
 
 
     public String getName() {
@@ -91,31 +87,25 @@ public class Player implements Serializable, Cloneable {
     }
 
 
-    public boolean isOnline(){
+    public boolean isOnline() {
         return status;
     }
 
-    public boolean isInJail(){
+    public boolean isInJail() {
         return !(jailDays == 0);
     }
-
-
-    public boolean isAuto() {
-        return auto;
-    }
-
 
     public void updateMoney(int amount) {
         this.money += amount;
     }
 
 
-    public void setLocation(Cell location){
+    public void setLocation(Cell location) {
         this.location = location;
     }
 
 
-    public void setJailDays(int jailDays){
+    public void setJailDays(int jailDays) {
         this.jailDays = jailDays;
     }
 

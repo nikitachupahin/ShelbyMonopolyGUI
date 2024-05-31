@@ -1,37 +1,8 @@
 package GameLogic;
 
-import GameLogicGUI.MonopolyStage;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.ObjectOutputStream;
-import java.util.*;
-
-
 import java.io.*;
 import java.util.*;
-
-
-
-
-import java.io.*;
-import java.util.*;
-
-
-
-
-
-import java.io.*;
-import java.util.*;
-
-
-
-
-
-import java.io.*;
-import java.util.*;
-
+import GameLogicGUI.*;
 
 
 enum MonopolyMap implements Serializable{
@@ -402,7 +373,6 @@ public class Game implements Serializable, Runnable{
         this.gameOver();
     }
 
-
     private boolean initNewGame(){
         /* Init Map */
         this.squareSet = new HashMap<Integer, Cell>();
@@ -459,8 +429,3 @@ public class Game implements Serializable, Runnable{
         runGame();
     }
 }
-
-
-
-
-

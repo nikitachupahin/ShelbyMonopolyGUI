@@ -1,0 +1,99 @@
+.root {
+    //abc: #99D;
+    -fx-background-image: url("img/gamepad.jpg");
+}
+.OwnerDisplay {
+    -fx-background-color: #555;
+}
+.nameLabel {
+	-fx-font-size:17;
+	-fx-font-style:Italic;
+}
+.moneyLabel {
+	-fx-font-weight:bold;
+	-fx-font-size:16;
+	//-fx-color:#FE5;
+}
+*{
+	-fx-font-size:13;
+}
+.messageArea {
+	-fx-control-inner-background: rgba(160, 160, 255, 0);
+	-fx-background-color: rgba(160, 160, 255, 0.6);
+	-fx-text-fill: #333366;
+}
+#retireButton {
+	-fx-font-weight:bold;
+	-fx-font-size:20;
+	-fx-background-color: rgba(150, 150, 128, 0.4);
+}
+#yesButton {
+	-fx-font-weight:bold;
+	-fx-font-size:20;
+	-fx-background-color: rgba(220, 220, 100, 0.8);
+}
+#noButton {
+	-fx-font-weight:bold;
+	-fx-font-size:20;
+	-fx-background-color: rgba(100, 220, 220, 0.8);
+}
+#s1 {
+    -fx-background-image: url("img/squares/1.png");
+}
+#s2 {
+    -fx-background-image: url("img/squares/2.png");
+}
+#s3 {
+    -fx-background-image: url("img/squares/3.png");
+}
+#s4 {
+    -fx-background-image: url("img/squares/4.png");
+}
+#s5 {
+    -fx-background-image: url("img/squares/5.png");
+}
+#s6 {
+    -fx-background-image: url("img/squares/6.png");
+}
+#s7 {
+    -fx-background-image: url("img/squares/7.png");
+}
+#s8 {
+    -fx-background-image: url("img/squares/8.png");
+}
+#s9 {
+    -fx-background-image: url("img/squares/9.png");
+}
+#s10 {
+    -fx-background-image: url("img/squares/10.png");
+}
+#s11 {
+    -fx-background-image: url("img/squares/11.png");
+}
+#s12 {
+    -fx-background-image: url("img/squares/12.png");
+}
+#s13 {
+    -fx-background-image: url("img/squares/13.png");
+}
+#s14 {
+    -fx-background-image: url("img/squares/14.png");
+}
+#s15 {
+    -fx-background-image: url("img/squares/15.png");
+}
+#s16 {
+    -fx-background-image: url("img/squares/16.png");
+}
+#s17 {
+    -fx-background-image: url("img/squares/17.png");
+}
+#s18 {
+    -fx-background-image: url("img/squares/18.png");
+}
+#s19 {
+    -fx-background-image: url("img/squares/19.png");
+}
+#s20 {
+    -fx-background-image: url("img/squares/20.png");
+}

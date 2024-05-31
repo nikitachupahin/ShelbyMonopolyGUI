@@ -165,7 +165,9 @@ public class MonopolyStage extends Application{
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please choose the number of players.",
                     new ButtonType("2"),
                     new ButtonType("3"),
-                    new ButtonType("4"));
+                    new ButtonType("4"),
+                    new ButtonType("5"),
+                    new ButtonType("6"));
 
             alert.setTitle("Monopoly");
             alert.setHeaderText("Number of players");

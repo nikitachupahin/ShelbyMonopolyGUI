@@ -1,13 +1,10 @@
 package GameLogicGUI;
 
-
-import GameLogic.Cell;
-import GameLogic.Player;
-import GameLogic.Property;
-import GameLogic.UserInterface;
+import GameLogic.*;
 
 import java.util.Arrays;
 import java.util.List;
+
 
 
 public class GUI implements UserInterface {
@@ -32,12 +29,6 @@ public class GUI implements UserInterface {
         System.out.println("Show notice DONE.");
         reply[ID]=-1;
     }
-
-    @Override
-    public void inform(String msg) {
-
-    }
-
     @Override
     public void displayMessage(String msg) {
         final int ID = Request.DisplayMessage.getID();
@@ -53,8 +44,6 @@ public class GUI implements UserInterface {
         System.out.println("Display message DONE.");
         reply[ID]=-1;
     }
-
-
 
     /* [ Game Display Methods ] */
     @Override
