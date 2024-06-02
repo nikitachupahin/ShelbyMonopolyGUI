@@ -246,9 +246,6 @@ public class GUI implements UserInterface {
         }
     }
 
-    public MonopolyStage getGameStage() {
-        return gameStage;
-    }
 
     public GUI(MonopolyStage gameStage) {
         this.gameStage = gameStage;
