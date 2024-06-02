@@ -301,7 +301,7 @@ public class MonopolyStage extends Application {
             for (Player p : sortedPlayers) {
                 ((ImageView) playerIcon.get(i)).setImage(new Image((getClass().getResource("img/players/player" + p.getPlayerNum() + ".png")).toExternalForm(), PLAYERWIDTH, PLAYERHEIGHT, true, false));
                 playerName.get(i).setText("#" + p.getPlayerNum() + " " + p.getName());
-                if (p.isOnline()) playerMoney.get(i).setText("HKD" + p.getMoneyAmount());
+                if (p.isOnline()) playerMoney.get(i).setText("USD" + p.getMoneyAmount());
                 else playerMoney.get(i).setText("Offline");
                 i++;
             }

@@ -197,7 +197,7 @@ public class Game implements Serializable, Runnable {
         for (i = 1; i <= steps; i++) tmp = tmp.getNext();
         UI.playerMove(currentPlayer.getCoordinates(), tmp, steps);
         if (currentPlayer.getCoordinates().getCoord() > tmp.getCoord()) {
-            UI.displayMessage("Player passes through GO square and gain salary of HKD 1500.");
+            UI.displayMessage("Player passes through GO square and gain salary of USD 1500.");
             currentPlayer.updateMoney(SALARY);
             UI.playerUpdateMoney(currentPlayer, SALARY);
         }
@@ -288,7 +288,7 @@ public class Game implements Serializable, Runnable {
                 switch (currentPlayer.getCoordinates().getType()) {
                     case TAX:
                         int tax = (((currentPlayer.getMoneyAmount() + ROUND) / TAXDIV) + ROUND) / TAXDIV * TAXDIV;
-                        UI.displayMessage("Player " + currentPlayer.getName() + " should pay tax of HKD" + tax + ".");
+                        UI.displayMessage("Player " + currentPlayer.getName() + " should pay tax of USD" + tax + ".");
                         currentPlayer.updateMoney(-tax);
                         UI.playerUpdateMoney(currentPlayer, -tax);
                         break;
@@ -315,7 +315,7 @@ public class Game implements Serializable, Runnable {
                         Property curProperty = (Property) currentPlayer.getCoordinates();
                         UI.displayMessage("Player " + currentPlayer.getName() + " arrives at " + curProperty.getName() + " (Price:" + curProperty.getPrice() + ", Rent:" + curProperty.getRent() + ").");
                         if (curProperty.getOwner() != null && curProperty.getOwner() != currentPlayer) {
-                            UI.displayMessage("This property belongs to " + curProperty.getOwner().getName() + ". " + currentPlayer.getName() + " should pay HKD " + curProperty.getRent() + ".");
+                            UI.displayMessage("This property belongs to " + curProperty.getOwner().getName() + ". " + currentPlayer.getName() + " should pay USD " + curProperty.getRent() + ".");
                             currentPlayer.updateMoney(-curProperty.getRent());
                             curProperty.getOwner().updateMoney(curProperty.getRent());
                             UI.playerUpdateMoney(currentPlayer, -curProperty.getRent());

@@ -3,7 +3,7 @@
     -fx-background-image: url("img/gamepad.jpg");
 }
 .OwnerDisplay {
-    -fx-background-color: #555;
+    -fx-background-color: #000;
 }
 .nameLabel {
 	-fx-font-size:17;

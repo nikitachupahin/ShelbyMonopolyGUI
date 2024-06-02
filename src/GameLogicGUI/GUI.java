@@ -50,9 +50,9 @@ public class GUI implements UserInterface {
     @Override
     public void playerUpdateMoney(Player player, int amount) {
         if (amount > 0) {
-            this.displayMessage("#" + player.getPlayerNum() + " " + player.getName() + " gets HKD" + amount + ".");
+            this.displayMessage("#" + player.getPlayerNum() + " " + player.getName() + " gets USD" + amount + ".");
         } else {
-            this.displayMessage("#" + player.getPlayerNum() + " " + player.getName() + " loses HKD" + amount + ".");
+            this.displayMessage("#" + player.getPlayerNum() + " " + player.getName() + " loses USD" + amount + ".");
         }
     }
 
