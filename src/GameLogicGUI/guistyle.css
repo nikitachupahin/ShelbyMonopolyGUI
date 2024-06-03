@@ -12,7 +12,7 @@
 .moneyLabel {
 	-fx-font-weight:bold;
 	-fx-font-size:16;
-	//-fx-color:#FE5;
+	-fx-color:#FE5;
 }
 *{
 	-fx-font-size:13;
